@@ -8,7 +8,21 @@
 
 FitZone hat etwa 600 aktive Mitgliedschaften, sechs Trainer und 25–30 Kurstermine pro Woche. Kurse und Teilnehmer werden bisher in Excel geführt; Buchungen, Stornierungen und Trainerabsprachen erfolgen über WhatsApp. Die Warteliste ist nicht zuverlässig dokumentiert, Absagen werden verspätet weitergegeben und die Kursplanung kostet Lisa viel Zeit (Fragen 1, 2, 6, 7, 14).
 
-**Ziel für Version 1:** mobil nutzbare Kursbuchung mit Tarifprüfung, automatisierter Warteliste, Kurs- und Trainerverwaltung sowie E-Mail-/Push-Benachrichtigungen bei wichtigen Ereignissen (Fragen 2, 12, 13, 20).
+**Ziel für Version 1:** mobil nutzbare Kursbuchung mit Tarifprüfung, automatisierter Warteliste, Kurs- und Trainerverwaltung sowie E-Mail-/Push-Benachrichtigungen bei wichtigen Ereignissen 
+
+## Ergänzungen aus Meeting #2 (Fragen 13–20)
+Die folgenden Punkte ergänzen das Anforderungsmodell aus Meeting #1.
+| Nachricht | Neue Erkenntnis aus Meeting #2 | Auswirkung auf das Modell / Priorität |
+|---|---|---|
+| **13** | Nutzung auf Smartphones ist Pflicht; Startseite mit Kursen der nächsten 2–3 Tage, freien Plätzen und eigenem nächsten Kurs; Filter nach Kursart, Uhrzeit und Trainer; Anzeige des Basic-Restkontingents. | Mobile Benutzeroberfläche der **v1**. Native App oder mobil optimierte Web-App ist Lisa gleichgültig. Farben für Auslastung sind ihr Wunsch, genaue Schwellenwerte offen. |
+| **14** | Trainer pflegen regelmäßige Verfügbarkeiten und Abwesenheiten selbst; für Kurszuweisungen sind Qualifikationen relevant. Lisa möchte Auslastungszahlen sehen, aber Extra-Kurstermine selbst entscheiden. | Die Entität **Trainerverfügbarkeit** und die Beziehung zu **Trainer** werden beibehalten; Qualifikationen gehören zum Trainer. Einfache Auslastungsübersicht in **v1**, automatische Empfehlungen später. |
+| **15** | Videobibliothek mit Titel, Dauer, Trainer, Kategorie und Schwierigkeitsgrad; Plus und Premium erhalten tarifabhängigen Zugriff, einzelne Videos können Premium-exklusiv sein; bisher liegen Dateien auf Google Drive. | **Version 2**; Video ist wegen der geforderten 6–8 Kernentitäten noch keine eigene Entität im v1-ER-Modell. Basiszugang zur Buchungs-App bleibt auch für Basic möglich. |
+| **16** | Premium enthält einen 1:1-Coaching-Slot pro Monat. Mitgliederdatei enthält Name, E-Mail, Telefon, Tarif und „Mitglied seit“; Kurs- und Trainerdaten liegen verstreut vor. Altdaten zu Buchungen und Historie sind lückenhaft. | **Version 2** für Coaching. Für **v1** Basisdaten und aktive Tarife importieren; alte Buchungen nicht migrieren; neue Tarif-/Pausenhistorie ab Umstellung erfassen. |
+| **17** | Coachings: Trainerwahl, freie Zeitfenster, Buchung; ein kostenloser Premium-Slot pro Monat, zusätzliche Termine kosten trainerabhängig ca. 60–80 €/Stunde. Nicht genutzte Slots sollen verfallen. | **Version 2**; Trainerverfügbarkeit kann dafür später wiederverwendet werden. |
+| **18** | Zusatzcoachings sollen online etwa per Karte/PayPal bezahlbar sein, Monatsbeiträge bleiben in der bestehenden SEPA-Abrechnung. Coaching-Storno bis zwei Stunden vorher kostenfrei, danach grundsätzlich 50 % bei bezahlten Terminen. Premium-Slot wird bei rechtzeitiger Absage gutgeschrieben, sonst verbraucht; kein Übertrag in Folgemonate. | **Version 2**; Zahlungsdienst und Premium-Ausnahme bei Stornogebühren noch offen. Keine Abbuchungslogik ohne geklärte Beträge und Prüfung. |
+| **19** | Verwaltungsdashboard: Tageskurse, verfügbare Plätze, einfache Auslastung, Mitgliedschaftsstatus, auslaufende Verträge, Tarife, manuelle Aufhebung von Sperren. Marie darf Kurse, Trainer und Anwesenheiten verwalten, aber **keine Finanzdaten**. Geburtstage sind gewünscht. | Tagesansicht, grundlegende Verwaltung und Rollenrechte in **v1**; erweiterte Analysen und Geburtstage später. |
+| **20** | Lisa priorisiert für **v1** Onlinebuchung, Warteliste, Tarifrechte, Trainerzuordnung und automatische Benachrichtigungen. Coaching und Videos dürfen später folgen. Budget und Termin sind nicht festgelegt; bestehende Softwareschnittstellen sind nicht erforderlich. | **MVP-Umfang bestätigt.** Offene Diskussion: Basic-App-Zugang vs. eingeschränkter Videozugang wird als Unterscheidung der Funktionen aufgelöst. |
+
 
 ## Entitäten
 
